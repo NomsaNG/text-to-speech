@@ -32,5 +32,45 @@ This is a simple yet powerful Text-to-Speech (TTS) application built using [Flet
    ```bash
    git clone https://github.com/NomsaNG/text-to-speech-app.git
    cd text-to-speech-app
-   ```
+    ```
+
+2. **Create a virtual environment and activate it**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Set up your .env file**
+    ```bash
+        API_KEY=your_murf_api_key_here
+    ```
+
+5. **Run the app**
+    ```bash
+    python main.py
+    ```
+
+6. **Voice & Mood Settings**
+Each voice supports different moods. Some examples:
+
+- Samantha: Conversational, Luxury, Angry, Newscast
+
+- Miles: Promo, Sad, Sports Commentary, Pirate
+
+- Natalie: Meditative, Inspirational, Furious
+
+You can preview available moods in the terminal by uncommenting this section:
+    ```bash
+        # for voice in voices:
+        #     print(f"Voice ID: {voice.voice_id}, Name: {voice.display_name}, Moods: {voice.available_styles}")
+    ```
+
+
+
+
 
