@@ -17,8 +17,8 @@ if API_KEY is None:
 client = Murf(api_key=API_KEY)
 
 voices = client.text_to_speech.get_voices()
-for voice in voices:
-    print(f"Voice ID: {voice.voice_id}, Name: {voice.display_name}, Moods: {voice.available_styles}")
+# for voice in voices:
+#     print(f"Voice ID: {voice.voice_id}, Name: {voice.display_name}, Moods: {voice.available_styles}")
 
 # Voice Settings
 VOICE_MOODS = {
@@ -58,11 +58,47 @@ def main(page: ft.Page):
     )
 
     # voice_selection
+    voice_selection = ft.Dropdown(
+        label="Choose Voice",
+        options=[ft.dropdown.Option(voice) for voice in VOICE_MOODS.keys()],
+        width=350,
+        bgcolor="#2A2A3B",
+        color="#ffffff",
+        value="Miles"
+    )
 
     # mood_selection
+    mood_selection = ft.Dropdown(
+        label="Choose Mood",
+        width=350,
+        bgcolor="#2A2A3B",
+        color="#ffffff"
+    )
 
     # enter_button
 
+    # Build a UI Container (return everything we created as a container)
+
+    input_container = ft.Container (   
+        content=ft.Column(
+        controls = [title, text_input],
+        spacing=15,
+        alignment=ft.MainAxisAlignment.CENTER
+        ),
+        padding=20,
+        border_radius=20,
+        bgcolor="#2A2A3B",
+        shadow=ft.BoxShadow(blur_radius=12,spread_radius=2, color="#FFD700")
+    )
+
+    page.add(
+        ft.Column(
+            controls = [title, input_container],
+            spacing=20,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+    )
+    
+    page.update()
 
 # Run the App
 if __name__ == "__main__":
