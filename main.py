@@ -3,7 +3,14 @@ import flet as ft
 import requests 
 import os
 from murf import Murf
-from api_key import API_KEY
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+# Load environment variables
+if API_KEY is None:
+    raise ValueError("API_KEY not found. Please set the API_KEY environment variable.")
 
 
 # API Client
